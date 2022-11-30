@@ -3,9 +3,9 @@ $(function(){
     $('.stage__slider').slick({
         dots: false,
         speed: 300,
-        slidesToShow: 1,
         variableWidth: true,
         infinite: true,
+        
     });
 
     $(document).ready(function () {
@@ -45,4 +45,19 @@ $(function(){
             $('.item__box-img5').toggleClass('underline1');
             });
         });
+});
+
+const burgerMenu = document.getElementById("burger");
+const navbarMenu = document.getElementById("menu");
+
+// Show and Hide Navbar Menu
+burgerMenu.addEventListener("click", () => {
+	burgerMenu.classList.toggle("is-active");
+	navbarMenu.classList.toggle("is-active");
+
+	if (navbarMenu.classList.contains("is-active")) {
+		navbarMenu.style.maxHeight = navbarMenu.scrollHeight + "px";
+	} else {
+		navbarMenu.removeAttribute("style");
+	}
 });
