@@ -1,13 +1,12 @@
 $(function(){
-
+// slider
     $('.stage__slider').slick({
         dots: false,
         speed: 300,
         variableWidth: true,
         infinite: true,
-        
     });
-
+// burger
     $(document).ready(function () {
         $('#list > li').click(function (event) {
             $(this).children("ul").slideToggle();
@@ -46,7 +45,7 @@ $(function(){
             });
         });
 });
-
+// header on mobile
 const burgerMenu = document.getElementById("burger");
 const navbarMenu = document.getElementById("menu");
 
@@ -61,3 +60,34 @@ burgerMenu.addEventListener("click", () => {
 		navbarMenu.removeAttribute("style");
 	}
 });
+
+$(function() {
+    $(".buttonSend").on("click", validate);
+   
+    // Validate email
+    function validateEmail(email) {
+      var re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      return re.test(String(email).toLowerCase());
+    }
+     
+    // send form
+    function sendForm() {
+      $(".error").text("Отправлено!").fadeIn();
+    }
+   
+    // validate email and send form after success validation
+    function validate() {
+      var email = $(".form__input2").val();
+      var $error = $(".error");
+      $error.text("");
+   
+      if (validateEmail(email)) {
+        $error.fadeOut();
+        sendForm();
+      } else {
+        $error.fadeIn();
+        $error.text("Email введен не правильно");
+      }
+      return false;
+    }
+  });

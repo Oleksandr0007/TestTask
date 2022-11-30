@@ -607,6 +607,11 @@ body{
     position: relative;
 }
 
+.error{
+    margin-bottom: 10px;
+    color: red;
+}
+
 .form__inner{
     display: flex;
     flex-direction: column;
