@@ -139,7 +139,7 @@ body{
     z-index: -1;
 }
 .ellipse2{
-    position: fixed;
+    position: absolute;
     z-index: -1;
     background: #fff;
     border: 2px solid #67AEFC;
@@ -375,15 +375,69 @@ body{
 }
 
 .slick-arrow.slick-next{
-    padding: 18px 22px 13px 26px;
+    width: 60px;
+    height: 60px;
     order: 3;
     margin-right: 25%;
+    position: relative;
+}
+
+.slick-arrow.slick-next::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border:  solid #000;
+    border-width: 2px 0 0 2px;
+    transform: translate(-50%, -50%) rotate(135deg);
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    transition: all .2s;
+}
+
+.slick-arrow.slick-next:hover::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border:  solid #fff;
+    border-width: 2px 0 0 2px;
+    transform: translate(-50%, -50%) rotate(135deg);
+    position: absolute;
+    left: 45%;
+    top: 50%;
 }
 
 .slick-arrow.slick-prev{
-    padding: 18px 27px 13px 21px;
+    width: 60px;
+    height: 60px;
     order: 2;
     margin-right: 30px;
+    position: relative;
+}
+
+.slick-arrow.slick-prev::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border:  solid #000;
+    border-width: 2px 0 0 2px;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    transition: all .2s;
+}
+
+.slick-arrow.slick-prev:hover::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border:  solid #fff;
+    border-width: 2px 0 0 2px;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    position: absolute;
+    left: 55%;
+    top: 50%;
 }
 
 .slick-arrow{
@@ -1119,7 +1173,7 @@ body{
         background-color: rgba(0, 0, 0, 0);
         position: absolute;
         right: 2%;
-        top: 20px;
+        top: 16px;
     }
     .menu {
         width: 100%;
@@ -1153,7 +1207,7 @@ body{
     }
     .brand{
         position: absolute;
-        top: 9px;
+        top: 7px;
         left: 3%;
     }
     .menu-link{
